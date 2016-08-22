@@ -59,6 +59,30 @@ This RFC takes inspiration from the Haskell
 and from ES6
 [shorthand property names](http://www.ecma-international.org/ecma-262/6.0/#sec-object-initializer).
 
+A motivating example would be the following difference found from a [discussion on TrustDNS](http://bluejekyll.github.io/blog/rust/dns/2016/08/21/a-year-of-rust-and-dns.html):
+
+```rust
+Ok(Header { id: id, message_type: message_type, op_code: op_code, authoritative: authoritative,
+    truncation: truncation, recursion_desired: recursion_desired,
+    recursion_available: recursion_available,
+    authentic_data: authentic_data, checking_disabled: checking_disabled,
+    response_code: response_code,
+    query_count: query_count, answer_count: answer_count,
+    name_server_count: name_server_count, additional_count: additional_count })
+```
+
+With named field puns, this would instead be more succinct:
+
+```rust
+Ok(Header { id, message_type, op_code, authoritative,
+    truncation, recursion_desired,
+    recursion_available,
+    authentic_data, checking_disabled,
+    response_code,
+    query_count, answer_count,
+    name_server_count, additional_count })
+```
+
 # Detailed design
 [design]: #detailed-design
 
